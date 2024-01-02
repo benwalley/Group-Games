@@ -1,0 +1,36 @@
+type Team @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  teamName: String
+  playerIds: [String]
+}
+
+type Score @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  gameId: String
+  sessionId: String
+  playerId: String
+  score: String
+  teamId: String
+}
+
+type GamingSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  pin: String
+  playerIds: [String]
+  games: [String]
+  lastPlayedTime: String
+}
+
+type Player @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  image: String
+}
+
+type PlayingGame @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  gameId: String
+  gameName: String
+  startedBy: String
+}
